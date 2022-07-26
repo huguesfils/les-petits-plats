@@ -1,0 +1,41 @@
+.header-logo {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  color: #d04f4f;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 47px;
+}
+
+main {
+  padding: 20px 100px 0px 100px;
+}
+
+.search-container {
+  display: flex;
+  justify-content: space-between;
+  height: 70px;
+  width: 100%;
+  border-radius: 5px;
+}
+.searchbar {
+  padding-left: 20px;
+  width: 100%;
+  border: none;
+  border-radius: 5px 0px 0px 5px;
+  background-color: #e7e7e7;
+}
+.search-button {
+  border: none;
+  border-radius: 0px 5px 5px 0px;
+  background-color: #e7e7e7;
+}
+
+.searchbar:focus,
+.search-button:focus {
+  outline: none;
+}

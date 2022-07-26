@@ -4,6 +4,10 @@
         <meta charset="utf-8" />
         <link href="css/index.css" rel="stylesheet" type="text/css" />
         <link rel="icon" type="image/png" href="assets/favicon.svg" />
+        <link
+            href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
+            rel="stylesheet"
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <link
             rel="stylesheet"
@@ -14,7 +18,21 @@
         <title>Les Petits Plats</title>
     </head>
     <body>
-        <div>coucou</div>
+        <header>
+            <div class="header-logo">
+                <img src="assets/favicon.svg" alt="Logo Les Petits Plats" />
+                <label>Les petits plats</label>
+            </div>
+        </header>
+
+        <main id="main">
+            <div class="search-container">
+                <input type="text" class="searchbar" placeholder="Rechercher une recette" />
+                <button class="search-button">
+                    <img src="assets/search.svg" alt="bouton recherche" />
+                </button>
+            </div>
+        </main>
         <script src="scripts/index.js"></script>
     </body>
 </html>
