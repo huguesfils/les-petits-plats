@@ -1,38 +1,48 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="utf-8" />
-        <link href="css/index.css" rel="stylesheet" type="text/css" />
-        <link rel="icon" type="image/png" href="assets/favicon.svg" />
-        <link
-            href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
-            rel="stylesheet"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <link
-            rel="stylesheet"
-            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-            crossorigin="anonymous"
-        />
-        <title>Les Petits Plats</title>
-    </head>
-    <body>
-        <header>
-            <div class="header-logo">
-                <img src="assets/favicon.svg" alt="Logo Les Petits Plats" />
-                <label>Les petits plats</label>
-            </div>
-        </header>
+  <head>
+    <meta charset="utf-8" />
+    <link href="css/index.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/png" href="assets/favicon.svg" />
+    <link
+      href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <title>Les Petits Plats</title>
+  </head>
+  <body>
+    <header>
+      <div class="header-logo">
+        <img src="assets/favicon.svg" alt="Logo Les Petits Plats" />
+        <label>Les petits plats</label>
+      </div>
+    </header>
 
-        <main id="main">
-            <div class="search-container">
-                <input type="text" class="searchbar" placeholder="Rechercher une recette" />
-                <button class="search-button">
-                    <img src="assets/search.svg" alt="bouton recherche" />
-                </button>
-            </div>
-        </main>
-        <script src="scripts/index.js"></script>
-    </body>
+    <main id="main">
+      <div class="search-container">
+        <input
+          type="text"
+          class="searchbar"
+          placeholder="Rechercher une recette"
+        />
+        <button class="search-button">
+          <img src="assets/search.svg" alt="bouton recherche" />
+        </button>
+      </div>
+
+      <div class="recipes-content"></div>
+    </main>
+    <script type="module" src="scripts/pages/index.js"></script>
+    <script type="module" src="scripts/factories/recipesFactory.js"></script>
+  </body>
 </html>

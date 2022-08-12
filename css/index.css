@@ -39,3 +39,27 @@ main {
 .search-button:focus {
   outline: none;
 }
+
+.recipes-content {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+
+  height: 364px;
+  width: 380px;
+}
+
+.fake-img {
+  height: 178px;
+  width: 100%;
+  background-color: #c7bebe;
+}
