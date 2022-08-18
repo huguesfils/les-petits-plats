@@ -53,7 +53,7 @@ export const recipes = [
       },
       {
         ingredient: "Carotte",
-        quantite: 1,
+        quantity: 1,
       },
       {
         ingredient: "Citron Vert",
@@ -67,7 +67,7 @@ export const recipes = [
     ],
     time: 60,
     description:
-      "Découper le thon en dés, mettre dans un plat et recouvrir de jus de citron vert (mieux vaut prendre un plat large et peu profond). Laisser reposer au réfrigérateur au moins 2 heures. (Si possible faites-le le soir pour le lendemain. Après avoir laissé mariner le poisson, coupez le concombre en fines rondelles sans la peau et les tomates en prenant soin de retirer les pépins. Rayer la carotte. Ajouter les légumes au poissons avec le citron cette fois ci dans un Saladier. Ajouter le lait de coco. Pour ajouter un peu plus de saveur vous pouver ajouter 1 à 2 cuillères à soupe de Crème de coco",
+      "Découper le thon en dés, mettre dans un plat et recouvrir de jus de citron vert (mieux vaut prendre un plat large et peu profond). Laisser reposer au réfrigérateur au moins 2 heures. (Si possible faites-le le soir pour le lendemain. Après avoir laissé mariner le poisson, coupez le concombre en fines rondelles sans la peau et les tomates en prenant soin de retirer les pépins. Rayer la carotte. Ajouter les légumes au poissons avec le citron cette fois ci dans un Saladier. Ajouter le lait de coco. Pour ajouter un peu plus de saveur vous pouvez ajouter 1 à 2 cuillères à soupe de Crème de coco",
     appliance: "Saladier",
     ustensils: ["presse citron"],
   },
@@ -101,7 +101,7 @@ export const recipes = [
       {
         ingredient: "Huile d'olive",
         quantity: 1,
-        unit: "cuillères à soupe",
+        unit: "cuillère à soupe",
       },
     ],
     time: 80,
@@ -181,7 +181,7 @@ export const recipes = [
       {
         ingredient: "Moutarde de Dijon",
         quantity: 1,
-        unite: "cuillères à soupe",
+        unite: "cuillère à soupe",
       },
     ],
     time: 45,
@@ -334,7 +334,7 @@ export const recipes = [
     ],
     time: 15,
     description:
-      "Peler le concombre le couper 2, retirer les pépins. Couper les olives en morceaux, ainsi que le fromage de chèvre. Ajouter le basilic ainsi que le vinaigre balsamic et l'huile d'olives à votre gout.",
+      "Peler le concombre le couper 2, retirer les pépins. Couper les olives en morceaux, ainsi que le fromage de chèvre. Ajouter le basilic ainsi que le vinaigre balsamic et l'huile d'olive à votre gout.",
     appliance: "Saladier",
     ustensils: ["cuillère en bois", "couteau"],
   },
@@ -472,7 +472,7 @@ export const recipes = [
       {
         ingredient: "huile d'olive",
         quantity: 2,
-        unit: "cuillère à soupe",
+        unit: "cuillères à soupe",
       },
     ],
     time: 40,
@@ -586,9 +586,9 @@ export const recipes = [
         unit: "tiges",
       },
       {
-        ingredient: "huile d'olives",
+        ingredient: "Huile d'olive",
         quantity: 2,
-        unit: "cuillère à soupe",
+        unit: "cuillères à soupe",
       },
     ],
     time: 45,
@@ -614,7 +614,7 @@ export const recipes = [
       {
         ingredient: "Jus de citron",
         quantity: 1,
-        unit: "cuillères à soupe",
+        unit: "cuillère à soupe",
       },
       {
         ingredient: "Glaçons",
@@ -718,7 +718,7 @@ export const recipes = [
       {
         ingredient: "huile d'olive",
         quantity: 1,
-        unit: "cuillères à soupe",
+        unit: "cuillère à soupe",
       },
     ],
     time: 30,
@@ -759,7 +759,7 @@ export const recipes = [
       {
         ingredient: "Crème fraîche",
         quantity: 1,
-        unit: "cuillères à soupe",
+        unit: "cuillère à soupe",
       },
     ],
     time: 30,
@@ -935,7 +935,7 @@ export const recipes = [
         quantity: 1,
       },
       {
-        ingredient: "Huile d'olives",
+        ingredient: "Huile d'olive",
       },
       {
         ingredient: "Oignon",
@@ -969,7 +969,7 @@ export const recipes = [
       {
         ingredient: "Crème fraîche",
         quantity: 4,
-        unit: "cuillère à soupe",
+        unit: "cuillères à soupe",
       },
       {
         ingredient: "Vermicelles",
@@ -1186,7 +1186,7 @@ export const recipes = [
       {
         ingredient: "Jus de citron",
         quantity: 1,
-        unit: "cuillères à soupe",
+        unit: "cuillère à soupe",
       },
     ],
     time: 5,
@@ -1250,7 +1250,7 @@ export const recipes = [
       {
         ingredient: "Cumin",
         quantity: 1,
-        unit: "cuillères à café",
+        unit: "cuillère à café",
       },
       {
         ingredient: "Noix de muscade",
@@ -1295,7 +1295,7 @@ export const recipes = [
       {
         ingredient: "Maïzena",
         quantity: 1,
-        unit: "cuillères à soupe",
+        unit: "cuillère à soupe",
       },
     ],
     time: 35,
@@ -1319,7 +1319,7 @@ export const recipes = [
         unit: "grammes",
       },
       {
-        ingredient: "Huile d'olives",
+        ingredient: "Huile d'olive",
         quantity: 25,
         unit: "cl",
       },
@@ -1428,7 +1428,7 @@ export const recipes = [
       {
         ingredient: "Bicarbonate",
         quantity: 1,
-        unit: "cuillères à café",
+        unit: "cuillère à café",
       },
     ],
     time: 10,
@@ -1519,6 +1519,7 @@ export const recipes = [
       },
       {
         ingredient: "Citron",
+        quantity: 1,
       },
     ],
     time: 50,
