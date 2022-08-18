@@ -21,22 +21,22 @@ main {
   height: 70px;
   width: 100%;
   border-radius: 5px;
-}
-.search-container .searchbar {
-  padding-left: 20px;
-  width: 100%;
-  border: none;
-  border-radius: 5px 0px 0px 5px;
-  background-color: #e7e7e7;
-}
-.search-container .search-button {
-  border: none;
-  border-radius: 0px 5px 5px 0px;
-  background-color: #e7e7e7;
-}
-.search-container .searchbar:focus,
-.search-container .search-button:focus {
-  outline: none;
+  .searchbar {
+    padding-left: 20px;
+    width: 100%;
+    border: none;
+    border-radius: 5px 0px 0px 5px;
+    background-color: #e7e7e7;
+  }
+  .search-button {
+    border: none;
+    border-radius: 0px 5px 5px 0px;
+    background-color: #e7e7e7;
+  }
+  .searchbar:focus,
+  .search-button:focus {
+    outline: none;
+  }
 }
 
 .recipes-content {
@@ -54,11 +54,9 @@ main {
   flex-direction: column;
   height: 364px;
   width: 380px;
+  .fake-img {
+    height: 178px;
+    width: 100%;
+    background-color: #c7bebe;
+  }
 }
-.card .fake-img {
-  height: 178px;
-  width: 100%;
-  background-color: #c7bebe;
-}
-
-/*# sourceMappingURL=index.css.map */

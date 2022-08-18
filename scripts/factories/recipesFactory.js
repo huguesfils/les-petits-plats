@@ -14,38 +14,58 @@ export const recipesFactory = (data) => {
     infos.className = "infos-container";
 
     const ingredientContainer = document.createElement("div");
-    ingredientContainer.className = "ingredients-list";
+    ingredientContainer.className = "ingredients-container";
 
     const timeDescription = document.createElement("div");
     timeDescription.className = "time-description";
+
+    const titleTime = document.createElement("div");
+    titleTime.className = "title-time-container";
 
     const title = document.createElement("label");
     title.className = "recipe-name";
     title.innerHTML = name;
 
-    const ingredientList = document.createElement("div");
-    for (const item of ingredients) {
-      const ingredientContainer = document.createElement("div");
+    titleTime.appendChild(title);
 
-      const ingredientName = document.createElement("label");
-      ingredientName.className = "ingredient-name";
-      ingredientName.innerHTML = `${item.ingredient}:&nbsp;`;
-      ingredientList.appendChild(ingredientName);
-      const quantity = document.createElement("label");
-      quantity.className = "quantity";
-      quantity.innerHTML = `&nbsp;${item.quantity}&nbsp;`;
-      ingredientList.appendChild(quantity);
-      if (item.unit) {
-        const unit = document.createElement("label");
-        unit.className = "unit";
-        unit.innerHTML = item.unit;
-        ingredientList.appendChild(unit);
-      }
-      ingredientContainer.appendChild(ingredientList);
-      //gerer affichage ingredients
-    }
-    // `assets/photographers/${portrait}`;
-    ingredientContainer.appendChild(title);
+    const timeImgContainer = document.createElement("div");
+    timeImgContainer.className = "time-img-container";
+
+    const timeLabel = document.createElement("label");
+    timeLabel.className = "time-label";
+    timeLabel.innerHTML = `${time}&nbspmin`;
+
+    const img = document.createElement("img");
+    img.setAttribute("src", timeImg);
+
+    timeImgContainer.appendChild(img);
+    timeImgContainer.appendChild(timeLabel);
+    titleTime.appendChild(timeImgContainer);
+
+    const ingredientList = document.createElement("div");
+    ingredientList.className = "ingredient-list";
+
+    // for (const item of ingredients) {
+    //   const ingredientContainer = document.createElement("div");
+
+    //   const ingredientName = document.createElement("label");
+    //   ingredientName.className = "ingredient-name";
+    //   ingredientName.innerHTML = `${item.ingredient}:&nbsp;`;
+    //   ingredientList.appendChild(ingredientName);
+    //   const quantity = document.createElement("label");
+    //   quantity.className = "quantity";
+    //   quantity.innerHTML = `&nbsp;${item.quantity}&nbsp;`;
+    //   ingredientList.appendChild(quantity);
+    //   if (item.unit) {
+    //     const unit = document.createElement("label");
+    //     unit.className = "unit";
+    //     unit.innerHTML = item.unit;
+    //     ingredientList.appendChild(unit);
+    //   }
+    //   ingredientContainer.appendChild(ingredientList);
+
+    // }
+    ingredientContainer.appendChild(titleTime);
     ingredientContainer.appendChild(ingredientList);
     infos.appendChild(timeDescription);
     infos.appendChild(ingredientContainer);

@@ -1,1 +1,11 @@
-{}
+{
+  "name": "les-petits-plats",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/main.scss:./css/index.css"
+  },
+  "author": "Hugues Fils",
+  "license": "ISC"
+}
