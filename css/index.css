@@ -39,6 +39,36 @@ main {
   outline: none;
 }
 
+.filters-container {
+  margin-top: 20px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  gap: 20px;
+}
+.filters-container .filter {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 10px;
+  height: 50px;
+  width: 140px;
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+}
+.filters-container .ingredient-btn {
+  background-color: #3282f7;
+}
+.filters-container .appliance-btn {
+  background-color: #68d9a4;
+}
+.filters-container .ustensils-btn {
+  background-color: #ed6454;
+}
+
 .recipes-content {
   margin-top: 20px;
   display: grid;
