@@ -41,10 +41,6 @@ export const recipesFactory = (data) => {
     const descriptionBlock = document.createElement("div");
     descriptionBlock.className = "description";
     descriptionBlock.innerHTML = description;
-    // const descriptionLabel = document.createElement("label");
-    // descriptionLabel.innerHTML = description;
-    //descriptionBlock.appendChild(descriptionLabel);
-
     const ingredientContainer = document.createElement("div");
     ingredientContainer.className = "ingredients-container";
 

@@ -21,3 +21,24 @@ async function init() {
 }
 
 init();
+
+// const ingredientList = document.getElementById("ingredient-list");
+// const ingredientLisBtn = document.getElementById("ingredient-list-btn");
+// const ingredientBtn = document.getElementById("ingredient-btn");
+
+// ingredientBtn.addEventListener("click", () => {
+//   ingredientList.style.display = "block";
+//   ingredientBtn.style.display = "none";
+// });
+
+// ingredientLisBtn.addEventListener("click", () => {
+//   ingredientList.style.display = "none";
+//   ingredientBtn.style.display = "block";
+// });
+
+const btn = document.getElementById("ustensils-btn");
+var myDropdown = document.getElementById("myDropdown");
+myDropdown.addEventListener("show.bs.dropdown", function () {
+  btn.style.display = "none";
+  console.log("ok");
+});
