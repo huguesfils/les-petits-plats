@@ -41,62 +41,32 @@
         </button>
       </div>
 
-      <section class="filters-container">
-        <div class="dropdown">
-          <button
-            class="btn btn-secondary dropdown-toggle filter ingredient-btn"
-            type="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Ingrédients
-            <img src="assets/chevron-down.svg" />
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </div>
-
-        <div class="dropdown">
-          <button
-            class="btn btn-secondary dropdown-toggle filter appliance-btn"
-            type="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Appareils
-            <img src="assets/chevron-down.svg" />
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </div>
-
-        <div class="dropdown">
-          <button
-            class="btn btn-secondary dropdown-toggle filter ustensils-btn"
-            type="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Ustensiles
-            <img src="assets/chevron-down.svg" />
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </div>
-      </section>
-      <!-- <div class="filters-container">
+      <div class="filters-container">
         <button class="filter ingredient-btn" id="ingredient-btn">
           Ingredients
+          <img src="assets/chevron-down.svg" />
         </button>
+
+        <div class="search-filter" id="ingredient-list">
+          <input
+            type="text"
+            class="filter-searchbar"
+            placeholder="Rechercher un ingredient"
+          />
+
+          <ul>
+            <li>coco</li>
+            <li>coco</li>
+            <li>coco</li>
+            <li>coco</li>
+            <li>coco</li>
+            <li>coco</li>
+            <li>coco</li>
+            <li>coco</li>
+            <li>coco</li>
+            <li>coco</li>
+          </ul>
+        </div>
 
         <button class="filter appliance-btn">
           Appareils
@@ -107,7 +77,7 @@
           Ustensiles
           <img src="assets/chevron-down.svg" />
         </button>
-      </div> -->
+      </div>
 
       <div class="recipes-content"></div>
     </main>
