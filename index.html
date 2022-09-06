@@ -68,21 +68,64 @@
           </ul>
         </div>
 
-        <button class="filter appliance-btn">
+        <button class="filter appliance-btn" id="appliance-btn">
           Appareils
           <img src="assets/chevron-down.svg" />
         </button>
 
-        <button class="filter ustensils-btn">
+        <div class="search-filter" id="appliance-list">
+          <input
+            type="text"
+            class="filter-searchbar"
+            placeholder="Rechercher un appareil"
+          />
+
+          <ul>
+            <li>coco</li>
+            <li>coco</li>
+            <li>coco</li>
+            <li>coco</li>
+            <li>coco</li>
+            <li>coco</li>
+            <li>coco</li>
+            <li>coco</li>
+            <li>coco</li>
+            <li>coco</li>
+          </ul>
+        </div>
+
+        <button class="filter ustensils-btn" id="ustensils-btn">
           Ustensiles
           <img src="assets/chevron-down.svg" />
         </button>
+
+        <div class="search-filter" id="ustensils-list">
+          <input
+            type="text"
+            class="filter-searchbar"
+            placeholder="Rechercher un ustensile"
+          />
+
+          <ul>
+            <li>coco</li>
+            <li>coco</li>
+            <li>coco</li>
+            <li>coco</li>
+            <li>coco</li>
+            <li>coco</li>
+            <li>coco</li>
+            <li>coco</li>
+            <li>coco</li>
+            <li>coco</li>
+          </ul>
+        </div>
       </div>
 
       <div class="recipes-content" id="toto"></div>
     </main>
     <script type="module" src="scripts/pages/index.js"></script>
     <script type="module" src="scripts/factories/recipesFactory.js"></script>
+    <script type="module" src="scripts/utils/filters.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"

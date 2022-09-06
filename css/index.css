@@ -105,6 +105,14 @@ main {
   display: none;
 }
 
+#ustensils-list {
+  display: none;
+}
+
+#appliance-list {
+  display: none;
+}
+
 .filters-container {
   margin-top: 20px;
   display: flex;
