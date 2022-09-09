@@ -765,7 +765,7 @@ export const recipes = [
     time: 30,
     description:
       "Cuisiner la viande hachée dans une poêle à frire. Dans une autre faire cuire les oignons découpés en fins dés avec un peu de beurre. Ajouter du vin rouge. Mélanger les oigons avec la viande hachée. Faire cuire les pates le temps indiqué sur le paquet. Ajouter le coulis de tomates à la viande hachée. Une fois que les pates sont cuites, ajouter la crème fraîche à la viande hachée. Servir.",
-    appliance: "Casserole.",
+    appliance: "Casserole",
     ustensils: ["Cuillère en bois", "louche", "couteau"],
   },
   {
@@ -802,7 +802,7 @@ export const recipes = [
     description:
       "Faire fondre le chocolat et le beurre au bain marie. Dans un saladier battre les oeufs avec le sucre jusqu'à obtenir une texture de type mousse. Ajouter la farine ainsi que le mélange de beurre et chocolat fondu. Beurrez le moule à gateaux. Mettre au four préchauffé à 200° puis faites chauffer pendant 15 minutes. C'est prêt. Servir avec une boule de glace ou une crème dessert.",
     appliance: "Four",
-    ustensils: ["moule à gateaux", "fouet", "casserole"],
+    ustensils: ["Moule à gateaux", "Fouet", "Casserole"],
   },
   {
     id: 23,
@@ -985,7 +985,7 @@ export const recipes = [
     time: 15,
     description:
       "Faire fondre l'oseille avec du beurre demi sel, ajouter un litre d'eau. Ajouter les vermicelles. Laisser cuire. une foit prêt, sortir du feu et après 5 minutes ajouter le jaune d'oeuf et la crème fraîche",
-    appliance: "casserole",
+    appliance: "Casserole",
     ustensils: ["couteau", "cuillère en bois"],
   },
   {

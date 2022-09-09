@@ -20,6 +20,6 @@ function applyClickOutToExit(id) {
   });
 }
 
-applyClickOutToExit("ingredient");
-applyClickOutToExit("appliance");
+applyClickOutToExit("ingredients");
+applyClickOutToExit("appliances");
 applyClickOutToExit("ustensils");

@@ -5,7 +5,6 @@ async function displayData(recipes) {
   const recipesSection = document.querySelector(".recipes-content");
   recipesSection.innerHTML = "";
   const itemList = document.querySelector(".search-filter");
-  // itemList.innerHTML = "";
 
   var ingredients = new Set();
   var appliances = new Set();
@@ -26,9 +25,8 @@ async function displayData(recipes) {
     });
   });
 
-  // Filter item qui son pret
-  const list = document.createElement("div");
-  list.className = "list";
+  const ingredientList = document.createElement("div");
+  ingredientList.className = "list";
   Array.from(ingredients)
     .sort()
     .map((ingredient) => {
@@ -36,9 +34,32 @@ async function displayData(recipes) {
       label.innerText = ingredient;
       return label;
     })
-    .forEach((div) => list.appendChild(div));
+    .forEach((div) => ingredientList.appendChild(div));
+  document.getElementById("ingredients-list").appendChild(ingredientList);
 
-  document.getElementById("ingredient-list").appendChild(list);
+  const applianceList = document.createElement("div");
+  applianceList.className = "list";
+  Array.from(appliances)
+    .sort()
+    .map((appliance) => {
+      let label = document.createElement("label");
+      label.innerText = appliance;
+      return label;
+    })
+    .forEach((div) => applianceList.appendChild(div));
+  document.getElementById("appliances-list").appendChild(applianceList);
+
+  const ustensilList = document.createElement("div");
+  ustensilList.className = "list";
+  Array.from(ustensils)
+    .sort()
+    .map((ustensil) => {
+      let label = document.createElement("label");
+      label.innerText = ustensil;
+      return label;
+    })
+    .forEach((div) => ustensilList.appendChild(div));
+  document.getElementById("ustensils-list").appendChild(ustensilList);
 }
 
 async function init() {
