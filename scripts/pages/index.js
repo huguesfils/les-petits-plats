@@ -26,7 +26,7 @@ async function displayData(recipes) {
   });
 
   const ingredientList = document.createElement("div");
-  ingredientList.className = "list";
+  ingredientList.className = "list blue";
   Array.from(ingredients)
     .sort()
     .map((ingredient) => {
@@ -38,7 +38,7 @@ async function displayData(recipes) {
   document.getElementById("ingredients-list").appendChild(ingredientList);
 
   const applianceList = document.createElement("div");
-  applianceList.className = "list";
+  applianceList.className = "list green";
   Array.from(appliances)
     .sort()
     .map((appliance) => {
@@ -50,7 +50,7 @@ async function displayData(recipes) {
   document.getElementById("appliances-list").appendChild(applianceList);
 
   const ustensilList = document.createElement("div");
-  ustensilList.className = "list";
+  ustensilList.className = "list red";
   Array.from(ustensils)
     .sort()
     .map((ustensil) => {
