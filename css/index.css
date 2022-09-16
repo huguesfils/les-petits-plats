@@ -161,8 +161,8 @@ main {
   display: flex;
   flex-direction: column;
   max-width: 60%;
-  border-radius: 5px;
-  padding: 0px 10px 10px 10px;
+  border-radius: 5px 5px 0px 0px;
+  padding: 0px 10px;
 }
 .filters-container .search-filter input {
   width: 100%;
@@ -179,6 +179,8 @@ main {
   opacity: 1; /* Firefox */
 }
 .filters-container .search-filter .list {
+  border-radius: 0px 0px 5px 5px;
+  padding: 2px 10px 10px 10px;
   background-color: #68d9a4;
   top: 100%;
   left: 0;

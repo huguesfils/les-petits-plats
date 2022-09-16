@@ -4,7 +4,7 @@ import { recipesFactory } from "../factories/recipesFactory.js";
 async function displayData(recipes) {
   const recipesSection = document.querySelector(".recipes-content");
   recipesSection.innerHTML = "";
-  const itemList = document.querySelector(".search-filter");
+  //const itemList = document.querySelector(".search-filter");
 
   var ingredients = new Set();
   var appliances = new Set();
@@ -35,6 +35,7 @@ async function displayData(recipes) {
       return label;
     })
     .forEach((div) => ingredientList.appendChild(div));
+  getSearchedItem("ingredients-input", ingredients);
   document.getElementById("ingredients-list").appendChild(ingredientList);
 
   const applianceList = document.createElement("div");
@@ -47,6 +48,7 @@ async function displayData(recipes) {
       return label;
     })
     .forEach((div) => applianceList.appendChild(div));
+  getSearchedItem("appliances-input", appliances);
   document.getElementById("appliances-list").appendChild(applianceList);
 
   const ustensilList = document.createElement("div");
@@ -59,7 +61,21 @@ async function displayData(recipes) {
       return label;
     })
     .forEach((div) => ustensilList.appendChild(div));
+  //getSearchedItem("ustensils-input", ustensils, ustensilList);
   document.getElementById("ustensils-list").appendChild(ustensilList);
+}
+
+function getSearchedItem(id, array, list) {
+  document.getElementById(id).addEventListener("keyup", (e) => {
+    const searchString = e.target.value;
+    const newArray = Array.from(array);
+    const filteredItem = newArray.filter((newArray) => {
+      return newArray.includes(searchString);
+    });
+    console.log(list);
+    document.getElementById(list).appendChild = filteredItem;
+    console.log(id);
+  });
 }
 
 async function init() {
