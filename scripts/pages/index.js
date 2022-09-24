@@ -25,55 +25,35 @@ async function displayData(recipes) {
     });
   });
 
-  const ingredientList = document.createElement("div");
-  ingredientList.className = "list blue";
-  Array.from(ingredients)
-    .sort()
-    .map((ingredient) => {
-      let label = document.createElement("label");
-      label.innerText = ingredient;
-      return label;
-    })
-    .forEach((div) => ingredientList.appendChild(div));
-  getSearchedItem("ingredients-input", ingredients);
-  document.getElementById("ingredients-list").appendChild(ingredientList);
+  getListItem(ingredients, "ingredients-list", "list blue");
+  getListItem(appliances, "appliances-list", "list green");
 
-  const applianceList = document.createElement("div");
-  applianceList.className = "list green";
-  Array.from(appliances)
-    .sort()
-    .map((appliance) => {
-      let label = document.createElement("label");
-      label.innerText = appliance;
-      return label;
-    })
-    .forEach((div) => applianceList.appendChild(div));
-  getSearchedItem("appliances-input", appliances);
-  document.getElementById("appliances-list").appendChild(applianceList);
-
-  const ustensilList = document.createElement("div");
-  ustensilList.className = "list red";
-  Array.from(ustensils)
-    .sort()
-    .map((ustensil) => {
-      let label = document.createElement("label");
-      label.innerText = ustensil;
-      return label;
-    })
-    .forEach((div) => ustensilList.appendChild(div));
-  //getSearchedItem("ustensils-input", ustensils, ustensilList);
-  document.getElementById("ustensils-list").appendChild(ustensilList);
+  getSearchedItem("ustensils-input", ustensils);
 }
 
-function getSearchedItem(id, array, list) {
+function getListItem(listItem, listName, className) {
+  const list = document.createElement("div");
+  list.className = className;
+  Array.from(listItem)
+    .sort()
+    .map((item) => {
+      let label = document.createElement("label");
+      label.innerText = item;
+      return label;
+    })
+    .forEach((div) => list.appendChild(div));
+  document.getElementById(listName).appendChild(list);
+}
+
+function getSearchedItem(id, listItem) {
   document.getElementById(id).addEventListener("keyup", (e) => {
     const searchString = e.target.value;
-    const newArray = Array.from(array);
+    const newArray = Array.from(listItem);
     const filteredItem = newArray.filter((newArray) => {
       return newArray.includes(searchString);
     });
-    console.log(list);
-    document.getElementById(list).appendChild = filteredItem;
+    getListItem(filteredItem, "ustensils-list", "list red");
+    // document.getElementById(list).appendChild = filteredItem;
     console.log(id);
   });
 }
