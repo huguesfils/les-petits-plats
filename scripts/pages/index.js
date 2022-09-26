@@ -1,10 +1,30 @@
 import { recipes } from "../../data/recipes.js";
 import { recipesFactory } from "../factories/recipesFactory.js";
 
+var ustensilsKeyword = null;
+var appliancesKeyword = null;
+var ingredientsKeyword = null;
+
+function getSearch(input, keyword) {
+  document.getElementById(input).addEventListener("keyup", (e) => {
+    const searchString = e.target.value;
+    if (searchString && searchString != "") {
+      keyword = searchString;
+    } else {
+      keyword = null;
+    }
+
+    displayData(recipes);
+  });
+}
+
+getSearch("ustensils-input", ustensilsKeyword);
+getSearch("appliances-input", appliancesKeyword);
+getSearch("ingredients-input", ingredientsKeyword);
+
 async function displayData(recipes) {
   const recipesSection = document.querySelector(".recipes-content");
   recipesSection.innerHTML = "";
-  //const itemList = document.querySelector(".search-filter");
 
   var ingredients = new Set();
   var appliances = new Set();
@@ -25,15 +45,42 @@ async function displayData(recipes) {
     });
   });
 
+  if (ustensilsKeyword) {
+    console.log("ok");
+    ustensils = new Set(
+      Array.from(ustensils).filter((ustensil) =>
+        ustensil.match(ustensilsKeyword)
+      )
+    );
+  }
+  // if (appliancesKeyword) {
+  //   appliances = new Set(
+  //     Array.from(appliances).filter((appliance) =>
+  //       appliance.match(appliancesKeyword)
+  //     )
+  //   );
+  // }
+  // if (ingredientsKeyword) {
+  //   ingredients = new Set(
+  //     Array.from(ingredients).filter((ingredient) =>
+  //       ingredient.match(ingredientsKeyword)
+  //     )
+  //   );
+  // }
+
   getListItem(ingredients, "ingredients-list", "list blue");
   getListItem(appliances, "appliances-list", "list green");
-
-  getSearchedItem("ustensils-input", ustensils);
+  getListItem(ustensils, "ustensils-list", "list red");
 }
 
 function getListItem(listItem, listName, className) {
+  const oldList = document.getElementById(listName + className);
+  if (oldList) {
+    oldList.remove();
+  }
   const list = document.createElement("div");
   list.className = className;
+  list.id = listName + className;
   Array.from(listItem)
     .sort()
     .map((item) => {
@@ -42,29 +89,13 @@ function getListItem(listItem, listName, className) {
       return label;
     })
     .forEach((div) => list.appendChild(div));
-  document.getElementById(listName).appendChild(list);
-}
 
-function getSearchedItem(id, listItem) {
-  document.getElementById(id).addEventListener("keyup", (e) => {
-    const searchString = e.target.value;
-    const newArray = Array.from(listItem);
-    const filteredItem = newArray.filter((newArray) => {
-      return newArray.includes(searchString);
-    });
-    getListItem(filteredItem, "ustensils-list", "list red");
-    // document.getElementById(list).appendChild = filteredItem;
-    console.log(id);
-  });
+  document.getElementById(listName).appendChild(list);
 }
 
 async function init() {
   try {
-    displayData(
-      recipes.filter((recipe) => {
-        return recipe.time <= 60;
-      })
-    );
+    displayData(recipes);
   } catch (err) {
     console.log(err);
   }
