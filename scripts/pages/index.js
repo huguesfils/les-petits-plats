@@ -5,22 +5,28 @@ var ustensilsKeyword = null;
 var appliancesKeyword = null;
 var ingredientsKeyword = null;
 
-function getSearch(input, keyword) {
+var keywords = {
+  ustensils: null,
+  appliances: null,
+  ingredients: null,
+};
+
+function getSearch(input, keywordObject, key) {
   document.getElementById(input).addEventListener("keyup", (e) => {
     const searchString = e.target.value;
     if (searchString && searchString != "") {
-      keyword = searchString;
+      keywordObject[key] = searchString;
     } else {
-      keyword = null;
+      keywordObject[key] = null;
     }
 
     displayData(recipes);
   });
 }
 
-getSearch("ustensils-input", ustensilsKeyword);
-getSearch("appliances-input", appliancesKeyword);
-getSearch("ingredients-input", ingredientsKeyword);
+getSearch("ustensils-input", keywords, "ustensils");
+getSearch("appliances-input", keywords, "appliances");
+getSearch("ingredients-input", keywords, "ingredients");
 
 async function displayData(recipes) {
   const recipesSection = document.querySelector(".recipes-content");
@@ -45,28 +51,28 @@ async function displayData(recipes) {
     });
   });
 
-  if (ustensilsKeyword) {
+  if (keywords["ustensils"]) {
     console.log("ok");
     ustensils = new Set(
       Array.from(ustensils).filter((ustensil) =>
-        ustensil.match(ustensilsKeyword)
+        ustensil.match(keywords["ustensils"])
       )
     );
   }
-  // if (appliancesKeyword) {
-  //   appliances = new Set(
-  //     Array.from(appliances).filter((appliance) =>
-  //       appliance.match(appliancesKeyword)
-  //     )
-  //   );
-  // }
-  // if (ingredientsKeyword) {
-  //   ingredients = new Set(
-  //     Array.from(ingredients).filter((ingredient) =>
-  //       ingredient.match(ingredientsKeyword)
-  //     )
-  //   );
-  // }
+  if (keywords["appliances"]) {
+    appliances = new Set(
+      Array.from(appliances).filter((appliance) =>
+        appliance.match(keywords["appliances"])
+      )
+    );
+  }
+  if (keywords["ingredients"]) {
+    ingredients = new Set(
+      Array.from(ingredients).filter((ingredient) =>
+        ingredient.match(keywords["ingredients"])
+      )
+    );
+  }
 
   getListItem(ingredients, "ingredients-list", "list blue");
   getListItem(appliances, "appliances-list", "list green");
@@ -92,6 +98,17 @@ function getListItem(listItem, listName, className) {
 
   document.getElementById(listName).appendChild(list);
 }
+
+var keywordsSelected = ["Poele", "Oeuf", "tomate"];
+
+keywordsSelected.forEach((keyword, index) => {
+  var btn = document.createElement("button");
+  btn.innerText = keyword;
+  btn.addEventListener("click", (element) => {
+    keywordsSelected.splice(index, 1);
+  });
+  document.getElementById("toto").appendChild(btn);
+});
 
 async function init() {
   try {
