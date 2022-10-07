@@ -1,15 +1,19 @@
 import { recipes } from "../../data/recipes.js";
 import { recipesFactory } from "../factories/recipesFactory.js";
 
-var ustensilsKeyword = null;
-var appliancesKeyword = null;
-var ingredientsKeyword = null;
-
 var keywords = {
   ustensils: null,
   appliances: null,
   ingredients: null,
 };
+
+var keywordsSelected = [];
+
+var ingredients = new Set();
+var appliances = new Set();
+var ustensils = new Set();
+
+const closeImg = "assets/close-btn.svg";
 
 function getSearch(input, keywordObject, key) {
   document.getElementById(input).addEventListener("keyup", (e) => {
@@ -32,10 +36,6 @@ async function displayData(recipes) {
   const recipesSection = document.querySelector(".recipes-content");
   recipesSection.innerHTML = "";
 
-  var ingredients = new Set();
-  var appliances = new Set();
-  var ustensils = new Set();
-
   recipes.forEach((recipe) => {
     const recipeModel = recipesFactory(recipe);
     const recipeCardDOM = recipeModel.getRecipeCardDOM(recipe);
@@ -52,7 +52,6 @@ async function displayData(recipes) {
   });
 
   if (keywords["ustensils"]) {
-    console.log("ok");
     ustensils = new Set(
       Array.from(ustensils).filter((ustensil) =>
         ustensil.match(keywords["ustensils"])
@@ -92,6 +91,17 @@ function getListItem(listItem, listName, className) {
     .map((item) => {
       let label = document.createElement("label");
       label.innerText = item;
+      label.setAttribute("id", item);
+      label.addEventListener("click", (element) => {
+        if (keywordsSelected.indexOf(label.innerText) === -1) {
+          keywordsSelected.push(label.innerText);
+          console.log(keywordsSelected);
+        } else {
+          keywordsSelected.splice(keywordsSelected.indexOf(label.innerText), 1);
+          console.log(keywordsSelected);
+        }
+        refreshFilterButtonsUI();
+      });
       return label;
     })
     .forEach((div) => list.appendChild(div));
@@ -99,16 +109,35 @@ function getListItem(listItem, listName, className) {
   document.getElementById(listName).appendChild(list);
 }
 
-var keywordsSelected = ["Poele", "Oeuf", "tomate"];
-
-keywordsSelected.forEach((keyword, index) => {
-  var btn = document.createElement("button");
-  btn.innerText = keyword;
-  btn.addEventListener("click", (element) => {
-    keywordsSelected.splice(index, 1);
+function refreshFilterButtonsUI() {
+  document.querySelector(".filter-buttons-container").innerHTML = "";
+  keywordsSelected.forEach((keyword, index) => {
+    var btn = document.createElement("button");
+    btn.innerText = keyword;
+    //boucle for
+    // if (ustensils.values().match(btn.innerText)) {
+    //   btn.setAttribute("id", "ustensils-btn");
+    // }
+    // if (btn.innerText.match(appliances)) {
+    //   btn.setAttribute("id", "appliances-btn");
+    // }
+    // if (btn.innerText.match(ingredients)) {
+    //   btn.setAttribute("id", "ingredients-btn");
+    // }
+    const img = document.createElement("img");
+    img.setAttribute("src", closeImg);
+    img.setAttribute("alt", "Retirer filtre");
+    btn.appendChild(img);
+    btn.addEventListener("click", (element) => {
+      keywordsSelected.splice(index, 1);
+      document.querySelector(".filter-buttons-container").style.display =
+        "none";
+      refreshFilterButtonsUI();
+    });
+    document.querySelector(".filter-buttons-container").appendChild(btn);
+    document.querySelector(".filter-buttons-container").style.display = "flex";
   });
-  document.getElementById("toto").appendChild(btn);
-});
+}
 
 async function init() {
   try {

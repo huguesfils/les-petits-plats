@@ -191,6 +191,7 @@ main {
       top: 100%;
       left: 0;
       z-index: 999;
+      width: 100%;
       position: absolute;
       display: flex;
       flex-wrap: wrap;
@@ -211,5 +212,36 @@ main {
     .blue {
       background-color: #3282f7;
     }
+  }
+}
+
+.filter-buttons-container {
+  display: none;
+  margin-top: 20px;
+  align-items: center;
+  gap: 10px;
+  button {
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: 700;
+    height: 37px;
+    border-radius: 5px;
+    color: white;
+    box-shadow: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    img {
+      margin-left: 10px;
+    }
+  }
+  #ustensil-btn {
+    background: #ed6454;
+  }
+  #appliances-btn {
+    background: #68d9a4;
+  }
+  #ingredients-btn {
+    background: #3282f7;
   }
 }

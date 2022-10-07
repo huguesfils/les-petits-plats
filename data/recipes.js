@@ -262,7 +262,7 @@ export const recipes = [
     description:
       "Étaler la pate dans les moules à tartelette. Faire cuire la pate 30 minutes. Découper le chocolat en morceau et le faire chauffer, y ajouter la crème liquide, ajouter le beurre et remuer jusqu'à avoir une pâte homogène. Verser la pate sur les tartelettes. Couper les fraises en 2 et les positionner sur ",
     appliance: "Four",
-    ustensils: ["moule à tartelettes (6)", "casserole"],
+    ustensils: ["Moule à tartelettes (6)", "Casserole"],
   },
   {
     id: 8,
@@ -303,7 +303,7 @@ export const recipes = [
     description:
       "Hachez les noix grossièrement. Faire fondre le chocolat avec le beurre. Mélanger les oeuf et le sucre et mélanger au chocolat. Ajouter la farine. Mélanger afin d'avoir quelque chose d'homogène puis incorporer les noix. Verser la préparation dans un moule de préférence rectangulaire. Cuire 2O à 25 minutes à 180°. Sortez du four et attendez quelques minutes pour démouler. Servir avec une boule de glace pour plus de gourmandise.",
     appliance: "Four",
-    ustensils: ["moule à gateaux", "casserole"],
+    ustensils: ["Moule à gateaux", "Casserole"],
   },
   {
     id: 9,
@@ -1460,7 +1460,7 @@ export const recipes = [
     time: 20,
     description:
       "Séparer les blancs d'oeufs. Faire fondre le chocolat au bain marie. Ajouter les jaunes et le sucre au chocolat hors du feu. Battre les blancs en neige. Ajouter les blancs au mélange de chocolat. Mélangez délicatement avec une spatule. Servir dans un plat ou dans des verres. Mettre au frais",
-    appliance: "casserole",
+    appliance: "Casserole",
     ustensils: ["fouet", "spatule", "verres"],
   },
   {
@@ -1562,7 +1562,7 @@ export const recipes = [
     time: 15,
     description:
       "Mélanger la farine et le beurre fondu en ajoutant le lait peu à peu. Ajouter du sucre après la cuisson. Bien mélanger. Ajouter le chocolat en morceaux et laisser chauffer 8 minutes en mélangeant avec une cuillère en bois. Mettre dans des verres",
-    appliance: "casserole",
+    appliance: "Casserole",
     ustensils: ["cuillère en bois"],
   },
   {
@@ -1593,7 +1593,7 @@ export const recipes = [
     time: 30,
     description:
       "Faire bouillir le lait ( on peut y ajouter de l'essence de vanille. Battre les oeufs et le sucre, ajouter la farine puis finalement ajouter le lait chaud. Remettre à feu doux pour faire épaissir en remuant pendant 5 à 10 minutes.",
-    appliance: "casserole",
+    appliance: "Casserole",
     ustensils: ["fouet", "saladier"],
   },
   {
@@ -1711,7 +1711,7 @@ export const recipes = [
     servings: 4,
     ingredients: [
       {
-        ingredient: "Bananes",
+        ingredient: "Banane",
         quantity: 2,
       },
       {
