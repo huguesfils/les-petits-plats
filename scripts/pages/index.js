@@ -114,16 +114,16 @@ function refreshFilterButtonsUI() {
   keywordsSelected.forEach((keyword, index) => {
     var btn = document.createElement("button");
     btn.innerText = keyword;
-    //boucle for
-    // if (ustensils.values().match(btn.innerText)) {
-    //   btn.setAttribute("id", "ustensils-btn");
-    // }
-    // if (btn.innerText.match(appliances)) {
-    //   btn.setAttribute("id", "appliances-btn");
-    // }
-    // if (btn.innerText.match(ingredients)) {
-    //   btn.setAttribute("id", "ingredients-btn");
-    // }
+    if ([...appliances].includes(keyword)) {
+      btn.setAttribute("id", "appliances-btn");
+    }
+    if ([...ustensils].includes(keyword)) {
+      btn.setAttribute("id", "ustensils-btn");
+    }
+    if ([...ingredients].includes(keyword)) {
+      btn.setAttribute("id", "ingredients-btn");
+    }
+
     const img = document.createElement("img");
     img.setAttribute("src", closeImg);
     img.setAttribute("alt", "Retirer filtre");
