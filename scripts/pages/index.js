@@ -123,7 +123,6 @@ function refreshFilterButtonsUI() {
     if ([...ingredients].includes(keyword)) {
       btn.setAttribute("id", "ingredients-btn");
     }
-
     const img = document.createElement("img");
     img.setAttribute("src", closeImg);
     img.setAttribute("alt", "Retirer filtre");
