@@ -9,6 +9,29 @@ var keywords = {
 
 var keywordsSelected = [];
 
+function addKeyword(name, type) {
+  keywordsSelected.push({
+    name: name,
+    type: type,
+  });
+  displayData(recipes);
+}
+
+function removeKeyword(name, type) {
+  keywordsSelected = keywordsSelected.filter(
+    (keyword) => keyword.name != name && keyword.type != type
+  );
+  displayData(recipes);
+}
+
+function keywordAlreadySet(name, type) {
+  return (
+    keywordsSelected.findIndex(
+      (keyword) => keyword.name == name && keyword.type == type
+    ) >= 0
+  );
+}
+
 var ingredients = new Set();
 var appliances = new Set();
 var ustensils = new Set();
@@ -32,11 +55,41 @@ getSearch("ustensils-input", keywords, "ustensils");
 getSearch("appliances-input", keywords, "appliances");
 getSearch("ingredients-input", keywords, "ingredients");
 
+var searchText = "Limon";
 async function displayData(recipes) {
+  var recipesFiltered = recipes;
+  if (searchText) {
+    recipesFiltered = recipesFiltered.filter((recipe) => {
+      return recipe.name.match(searchText);
+    });
+  }
+  if (keywordsSelected.length > 0) {
+    keywordsSelected.forEach((keyword) => {
+      recipesFiltered = recipesFiltered.filter((recipe) => {
+        switch (keyword.type) {
+          case "appliances-list":
+            return recipe.appliance == keyword.name;
+            break;
+          case "ustensils-list":
+            //contains
+            return true;
+            break;
+          case "ingredients-list":
+            return true;
+            break;
+        }
+      });
+    });
+  }
+
   const recipesSection = document.querySelector(".recipes-content");
   recipesSection.innerHTML = "";
 
-  recipes.forEach((recipe) => {
+  ingredients = new Set();
+  appliances = new Set();
+  ustensils = new Set();
+
+  recipesFiltered.forEach((recipe) => {
     const recipeModel = recipesFactory(recipe);
     const recipeCardDOM = recipeModel.getRecipeCardDOM(recipe);
     recipesSection.appendChild(recipeCardDOM);
@@ -93,13 +146,16 @@ function getListItem(listItem, listName, className) {
       label.innerText = item;
       label.setAttribute("id", item);
       label.addEventListener("click", (element) => {
-        if (keywordsSelected.indexOf(label.innerText) === -1) {
-          keywordsSelected.push(label.innerText);
-          console.log(keywordsSelected);
+        if (keywordAlreadySet(label.innerText, listName)) {
+          removeKeyword(label.innerText, listName);
         } else {
-          keywordsSelected.splice(keywordsSelected.indexOf(label.innerText), 1);
-          console.log(keywordsSelected);
+          addKeyword(label.innerText, listName);
         }
+        // if (keywordsSelected.indexOf(label.innerText) === -1) {
+        //   keywordsSelected.push(label.innerText);
+        // } else {
+        //   keywordsSelected.splice(keywordsSelected.indexOf(label.innerText), 1);
+        // }
         refreshFilterButtonsUI();
       });
       return label;
@@ -113,22 +169,35 @@ function refreshFilterButtonsUI() {
   document.querySelector(".filter-buttons-container").innerHTML = "";
   keywordsSelected.forEach((keyword, index) => {
     var btn = document.createElement("button");
-    btn.innerText = keyword;
-    if ([...appliances].includes(keyword)) {
-      btn.setAttribute("id", "appliances-btn");
+    btn.innerText = keyword.name;
+    switch (keyword.type) {
+      case "appliances-list":
+        btn.setAttribute("id", "appliances-btn");
+        break;
+      case "ustensils-list":
+        btn.setAttribute("id", "ustensils-btn");
+        break;
+      case "ingredients-list":
+        btn.setAttribute("id", "ingredients-btn");
+        break;
     }
-    if ([...ustensils].includes(keyword)) {
-      btn.setAttribute("id", "ustensils-btn");
-    }
-    if ([...ingredients].includes(keyword)) {
-      btn.setAttribute("id", "ingredients-btn");
-    }
+
+    // if ([...appliances].includes(keyword)) {
+    //   btn.setAttribute("id", "appliances-btn");
+    // }
+    // if ([...ustensils].includes(keyword)) {
+    //   btn.setAttribute("id", "ustensils-btn");
+    // }
+    // if ([...ingredients].includes(keyword)) {
+    //   btn.setAttribute("id", "ingredients-btn");
+    // }
     const img = document.createElement("img");
     img.setAttribute("src", closeImg);
     img.setAttribute("alt", "Retirer filtre");
     btn.appendChild(img);
     btn.addEventListener("click", (element) => {
-      keywordsSelected.splice(index, 1);
+      removeKeyword(keyword.name, keyword.type);
+      // keywordsSelected.splice(index, 1);
       document.querySelector(".filter-buttons-container").style.display =
         "none";
       refreshFilterButtonsUI();
