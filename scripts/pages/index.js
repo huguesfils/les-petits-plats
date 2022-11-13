@@ -62,14 +62,13 @@ document.getElementById("main-search-input").addEventListener("keyup", (e) => {
 });
 
 async function displayData() {
-  var recipesFiltered = recipes;
+  var recipesFiltered = [];
 
-  if (searchText.length > 0) {
-    console.log("Searched => " + searchText);
-    recipesFiltered = recipesFiltered.filter((recipe) => {
-      return recipe.name.match(searchText);
-    });
-  }
+  recipes.forEach((recipe) => {
+    if (recipe.name.match(searchText)) {
+      recipesFiltered.push(recipe);
+    }
+  });
 
   if (keywordsSelected.length > 0) {
     keywordsSelected.forEach((keyword) => {
