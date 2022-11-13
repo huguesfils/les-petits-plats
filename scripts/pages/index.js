@@ -14,14 +14,14 @@ function addKeyword(name, type) {
     name: name,
     type: type,
   });
-  displayData(recipes);
+  displayData();
 }
 
 function removeKeyword(name, type) {
   keywordsSelected = keywordsSelected.filter(
     (keyword) => keyword.name != name && keyword.type != type
   );
-  displayData(recipes);
+  displayData();
 }
 
 function keywordAlreadySet(name, type) {
@@ -47,7 +47,7 @@ function getSearch(input, keywordObject, key) {
       keywordObject[key] = null;
     }
 
-    displayData(recipes);
+    displayData();
   });
 }
 
@@ -55,28 +55,36 @@ getSearch("ustensils-input", keywords, "ustensils");
 getSearch("appliances-input", keywords, "appliances");
 getSearch("ingredients-input", keywords, "ingredients");
 
-var searchText = "Limon";
-async function displayData(recipes) {
+var searchText = "";
+document.getElementById("main-search-input").addEventListener("keyup", (e) => {
+  searchText = e.target.value;
+  displayData();
+});
+
+async function displayData() {
   var recipesFiltered = recipes;
-  if (searchText) {
+
+  if (searchText.length > 0) {
+    console.log("Searched => " + searchText);
     recipesFiltered = recipesFiltered.filter((recipe) => {
       return recipe.name.match(searchText);
     });
   }
+
   if (keywordsSelected.length > 0) {
     keywordsSelected.forEach((keyword) => {
       recipesFiltered = recipesFiltered.filter((recipe) => {
         switch (keyword.type) {
           case "appliances-list":
             return recipe.appliance == keyword.name;
-            break;
           case "ustensils-list":
-            //contains
-            return true;
-            break;
+            return recipe.ustensils.indexOf(keyword.name) >= 0;
           case "ingredients-list":
-            return true;
-            break;
+            return (
+              recipe.ingredients.findIndex(
+                (ingredient) => ingredient.ingredient == keyword.name
+              ) >= 0
+            );
         }
       });
     });
@@ -209,7 +217,7 @@ function refreshFilterButtonsUI() {
 
 async function init() {
   try {
-    displayData(recipes);
+    displayData();
   } catch (err) {
     console.log(err);
   }
