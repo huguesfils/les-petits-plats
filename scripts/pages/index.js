@@ -67,12 +67,6 @@ async function displayData() {
     }
   }
 
-  // recipes.forEach((recipe) => {
-  //   if (recipe.name.match(searchText)) {
-  //     recipesFiltered.push(recipe);
-  //   }
-  // });
-
   if (keywordsSelected.length > 0) {
     keywordsSelected.forEach(keyword => {
       recipesFiltered = recipesFiltered.filter(recipe => {
