@@ -4,7 +4,7 @@ import { recipesFactory } from "../factories/recipesFactory.js";
 var keywords = {
   ustensils: null,
   appliances: null,
-  ingredients: null,
+  ingredients: null
 };
 
 var keywordsSelected = [];
@@ -12,24 +12,20 @@ var keywordsSelected = [];
 function addKeyword(name, type) {
   keywordsSelected.push({
     name: name,
-    type: type,
+    type: type
   });
   displayData();
 }
 
 function removeKeyword(name, type) {
   keywordsSelected = keywordsSelected.filter(
-    (keyword) => keyword.name != name && keyword.type != type
+    keyword => keyword.name != name && keyword.type != type
   );
   displayData();
 }
 
 function keywordAlreadySet(name, type) {
-  return (
-    keywordsSelected.findIndex(
-      (keyword) => keyword.name == name && keyword.type == type
-    ) >= 0
-  );
+  return keywordsSelected.findIndex(keyword => keyword.name == name && keyword.type == type) >= 0;
 }
 
 var ingredients = new Set();
@@ -39,7 +35,7 @@ var ustensils = new Set();
 const closeImg = "assets/close-btn.svg";
 
 function getSearch(input, keywordObject, key) {
-  document.getElementById(input).addEventListener("keyup", (e) => {
+  document.getElementById(input).addEventListener("keyup", e => {
     const searchString = e.target.value;
     if (searchString && searchString != "") {
       keywordObject[key] = searchString;
@@ -56,7 +52,7 @@ getSearch("appliances-input", keywords, "appliances");
 getSearch("ingredients-input", keywords, "ingredients");
 
 var searchText = "";
-document.getElementById("main-search-input").addEventListener("keyup", (e) => {
+document.getElementById("main-search-input").addEventListener("keyup", e => {
   searchText = e.target.value;
   displayData();
 });
@@ -64,15 +60,22 @@ document.getElementById("main-search-input").addEventListener("keyup", (e) => {
 async function displayData() {
   var recipesFiltered = [];
 
-  recipes.forEach((recipe) => {
-    if (recipe.name.match(searchText)) {
+  for (var i = 0; i < recipes.length; i++) {
+    const recipe = recipes[i];
+    if (recipe.name.indexOf(searchText) >= 0) {
       recipesFiltered.push(recipe);
     }
-  });
+  }
+
+  // recipes.forEach((recipe) => {
+  //   if (recipe.name.match(searchText)) {
+  //     recipesFiltered.push(recipe);
+  //   }
+  // });
 
   if (keywordsSelected.length > 0) {
-    keywordsSelected.forEach((keyword) => {
-      recipesFiltered = recipesFiltered.filter((recipe) => {
+    keywordsSelected.forEach(keyword => {
+      recipesFiltered = recipesFiltered.filter(recipe => {
         switch (keyword.type) {
           case "appliances-list":
             return recipe.appliance == keyword.name;
@@ -80,9 +83,7 @@ async function displayData() {
             return recipe.ustensils.indexOf(keyword.name) >= 0;
           case "ingredients-list":
             return (
-              recipe.ingredients.findIndex(
-                (ingredient) => ingredient.ingredient == keyword.name
-              ) >= 0
+              recipe.ingredients.findIndex(ingredient => ingredient.ingredient == keyword.name) >= 0
             );
         }
       });
@@ -96,40 +97,34 @@ async function displayData() {
   appliances = new Set();
   ustensils = new Set();
 
-  recipesFiltered.forEach((recipe) => {
+  recipesFiltered.forEach(recipe => {
     const recipeModel = recipesFactory(recipe);
     const recipeCardDOM = recipeModel.getRecipeCardDOM(recipe);
     recipesSection.appendChild(recipeCardDOM);
 
-    recipe.ingredients.forEach((ingredient) => {
+    recipe.ingredients.forEach(ingredient => {
       ingredients.add(ingredient.ingredient);
     });
     appliances.add(recipe.appliance);
 
-    recipe.ustensils.forEach((ustensil) => {
+    recipe.ustensils.forEach(ustensil => {
       ustensils.add(ustensil);
     });
   });
 
   if (keywords["ustensils"]) {
     ustensils = new Set(
-      Array.from(ustensils).filter((ustensil) =>
-        ustensil.match(keywords["ustensils"])
-      )
+      Array.from(ustensils).filter(ustensil => ustensil.match(keywords["ustensils"]))
     );
   }
   if (keywords["appliances"]) {
     appliances = new Set(
-      Array.from(appliances).filter((appliance) =>
-        appliance.match(keywords["appliances"])
-      )
+      Array.from(appliances).filter(appliance => appliance.match(keywords["appliances"]))
     );
   }
   if (keywords["ingredients"]) {
     ingredients = new Set(
-      Array.from(ingredients).filter((ingredient) =>
-        ingredient.match(keywords["ingredients"])
-      )
+      Array.from(ingredients).filter(ingredient => ingredient.match(keywords["ingredients"]))
     );
   }
 
@@ -148,11 +143,11 @@ function getListItem(listItem, listName, className) {
   list.id = listName + className;
   Array.from(listItem)
     .sort()
-    .map((item) => {
+    .map(item => {
       let label = document.createElement("label");
       label.innerText = item;
       label.setAttribute("id", item);
-      label.addEventListener("click", (element) => {
+      label.addEventListener("click", element => {
         if (keywordAlreadySet(label.innerText, listName)) {
           removeKeyword(label.innerText, listName);
         } else {
@@ -167,7 +162,7 @@ function getListItem(listItem, listName, className) {
       });
       return label;
     })
-    .forEach((div) => list.appendChild(div));
+    .forEach(div => list.appendChild(div));
 
   document.getElementById(listName).appendChild(list);
 }
@@ -202,11 +197,10 @@ function refreshFilterButtonsUI() {
     img.setAttribute("src", closeImg);
     img.setAttribute("alt", "Retirer filtre");
     btn.appendChild(img);
-    btn.addEventListener("click", (element) => {
+    btn.addEventListener("click", element => {
       removeKeyword(keyword.name, keyword.type);
       // keywordsSelected.splice(index, 1);
-      document.querySelector(".filter-buttons-container").style.display =
-        "none";
+      document.querySelector(".filter-buttons-container").style.display = "none";
       refreshFilterButtonsUI();
     });
     document.querySelector(".filter-buttons-container").appendChild(btn);
