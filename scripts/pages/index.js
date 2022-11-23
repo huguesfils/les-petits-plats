@@ -60,7 +60,7 @@ document.getElementById("main-search-input").addEventListener("keyup", e => {
 async function displayData() {
   var recipesFiltered = recipes;
 
-  if (searchText.length > 0) {
+  if (searchText.length > 3) {
     recipesFiltered = recipesFiltered.filter(recipe => {
       return recipe.name.match(searchText);
     });
