@@ -152,11 +152,6 @@ function getListItem(listItem, listName, className) {
         } else {
           addKeyword(label.innerText, listName);
         }
-        // if (keywordsSelected.indexOf(label.innerText) === -1) {
-        //   keywordsSelected.push(label.innerText);
-        // } else {
-        //   keywordsSelected.splice(keywordsSelected.indexOf(label.innerText), 1);
-        // }
         refreshFilterButtonsUI();
       });
       return label;
@@ -182,23 +177,12 @@ function refreshFilterButtonsUI() {
         btn.setAttribute("id", "ingredients-btn");
         break;
     }
-
-    // if ([...appliances].includes(keyword)) {
-    //   btn.setAttribute("id", "appliances-btn");
-    // }
-    // if ([...ustensils].includes(keyword)) {
-    //   btn.setAttribute("id", "ustensils-btn");
-    // }
-    // if ([...ingredients].includes(keyword)) {
-    //   btn.setAttribute("id", "ingredients-btn");
-    // }
     const img = document.createElement("img");
     img.setAttribute("src", closeImg);
     img.setAttribute("alt", "Retirer filtre");
     btn.appendChild(img);
     btn.addEventListener("click", element => {
       removeKeyword(keyword.name, keyword.type);
-      // keywordsSelected.splice(index, 1);
       document.querySelector(".filter-buttons-container").style.display = "none";
       refreshFilterButtonsUI();
     });
