@@ -53,18 +53,21 @@ getSearch("ingredients-input", keywords, "ingredients");
 
 var searchText = "";
 document.getElementById("main-search-input").addEventListener("keyup", e => {
-  searchText = e.target.value;
-  displayData();
+  if (e.target.value.length >= 3) {
+    searchText = e.target.value;
+    displayData();
+  } else {
+    searchText = "";
+    displayData();
+  }
 });
 
 async function displayData() {
   var recipesFiltered = recipes;
 
-  if (searchText.length > 3) {
-    recipesFiltered = recipesFiltered.filter(recipe => {
-      return recipe.name.match(searchText);
-    });
-  }
+  recipesFiltered = recipesFiltered.filter(recipe => {
+    return recipe.name.match(searchText);
+  });
 
   if (keywordsSelected.length > 0) {
     keywordsSelected.forEach(keyword => {
