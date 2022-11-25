@@ -176,7 +176,7 @@ main {
 }
 .filters-container .search-filter input::placeholder {
   color: white;
-  opacity: 1; /* Firefox */
+  opacity: 1;
 }
 .filters-container .search-filter .list {
   border-radius: 0px 0px 5px 5px;
